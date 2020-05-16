@@ -3,6 +3,7 @@ import Recipe from '../components/Recipe'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getRecipes} from '../actions/recipesActions'
+import Form from '../components/Form'
 
 class Recipes extends React.Component {
     
@@ -12,11 +13,13 @@ class Recipes extends React.Component {
        
 
     render(){
+
         const recipeComponent = this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
-        
+       
         return(
             <div>
-            {recipeComponent}
+              <Form />
+         {recipeComponent}
             </div>
         )}
     }

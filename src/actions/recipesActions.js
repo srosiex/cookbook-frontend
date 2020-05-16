@@ -22,7 +22,7 @@ export const showRecipe = recipe => {
     }
 }
 
-export const getRecipe = recipeId => {
+export const getRecipe = (recipeId) => {
     return dispatch => {
         fetch(`http://localhost:3001/recipes/${recipeId}`)
         .then(r => r.json())
@@ -33,3 +33,20 @@ export const getRecipe = recipeId => {
     }
 }
 //thunk returns function-dispatch
+
+export const addRecipe = recipe => {
+    return dispatch => {
+        fetch('http://localhost:3001/recipes', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({recipe: recipe})
+        })
+        .then(res => res.json())
+        .then(recipe => {
+            dispatch({type: "ADD_RECIPE", payload: {recipe}})
+        })
+        .catch(error => console.log(error))
+    }
+}
