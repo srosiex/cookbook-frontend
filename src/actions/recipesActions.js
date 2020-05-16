@@ -45,7 +45,24 @@ export const addRecipe = recipe => {
         })
         .then(res => res.json())
         .then(recipe => {
-            dispatch({type: "ADD_RECIPE", payload: {recipe}})
+            dispatch({type: "ADD_RECIPE", payload: recipe})
+        })
+        .catch(error => console.log(error))
+    }
+}
+
+export const removeRecipe = (recipeId, routerHistory) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/recipes/${recipeId}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+              }
+        })
+        .then(res => res.json())
+        .then(recipe => {
+            dispatch({type: "REMOVE_RECIPE", payload: recipe})
+            routerHistory.replace('/myrecipes')
         })
         .catch(error => console.log(error))
     }

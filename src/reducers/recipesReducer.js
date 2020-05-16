@@ -7,6 +7,8 @@ export default (state = [], action)=>{
             return action.recipe
         case 'ADD_RECIPE':
             return [...state, action.recipe] 
+        case 'REMOVE_RECIPE':
+            return state.filter(recipe => recipe.id !== action.id)
 
         default:
             return state;
