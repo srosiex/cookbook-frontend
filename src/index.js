@@ -5,10 +5,8 @@ import App from './App';
 import {Provider} from 'react-redux'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
-import recipesReducer from './reducers/recipesReducer';
+import rootReducer from './reducers'
 
-const rootReducer = combineReducers({recipes: recipesReducer})
-const reducer = () => ({food: "potatoes"})
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(rootReducer, composeEnhancers(

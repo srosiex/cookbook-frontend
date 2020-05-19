@@ -26,7 +26,7 @@ class Form extends React.Component{
     handleSubmit = event => {
         event.preventDefault();
         this.props.addRecipe(this.state)
-        this.props.history.push('/myrecipes')
+      
     }
 
     render(){

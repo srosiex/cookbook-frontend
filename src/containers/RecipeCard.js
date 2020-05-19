@@ -18,6 +18,7 @@ class RecipeCard extends React.Component{
     handleDelete = e => {
         const recipeId = this.props.recipe.id
         this.props.removeRecipe(this.props.recipe.id)
+        this.props.history.push('/myrecipes')
     }
 
     render(){

@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Recipes from './containers/Recipes'
 import RecipeCard from './containers/RecipeCard'
-import FavRecipe from './components/FavRecipe'
+import FindRecipes from './containers/FindRecipes'
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 
 import Home from './components/Home'
@@ -17,35 +17,22 @@ class App extends React.Component {
 
   render(){
 
-    console.log(this.props)
 
   return (
     <Router>
       <div className="App">
         <Link to={`/`}>Home</Link><br />
         <Link to={`/myrecipes`}>My Recipes</Link>
-        <Link to={`/myfavs`}>My Favs</Link>
+        <Link to={`/findrecipes`}>Find Recipes</Link>
         <hr/>
 
         <Switch>
           <Route exact path="/" component={Home} />
-      {/* {
-        this.props.recipes.favorites === true ?
-        <Route exact path={`/myfavs`}>
-          <FavRecipe />
-        </Route>
-        :
-        <Route exact path={`/myrecipes`}>
-        <Recipes />
-      </Route> 
-      } */}
          <Route exact path={`/myrecipes`}>
             <Recipes />
           </Route>
-          <Route exact path={`/myfavs`}>
-            <Recipes />
-          </Route>
           <Route exact path="/myrecipes/:recipeId" component={RecipeCard} />
+          <Route exact path="/findrecipes" component={FindRecipes} />
         </Switch>
 
     </div>

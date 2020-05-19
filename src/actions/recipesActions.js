@@ -67,3 +67,30 @@ export const removeRecipe = (recipeId, routerHistory) => {
         .catch(error => console.log(error))
     }
 }
+
+
+
+///////////////////
+
+export const showFindRecipes = fRecipes => {
+    return {
+        type: "SHOW_FIND_RECIPES",
+        fRecipes: fRecipes
+    }
+}
+
+export const getFindRecipes = (searchQuery = 'vegan') => {
+    console.log(searchQuery)
+    return dispatch => {
+        fetch(`https://yummly2.p.rapidapi.com/feeds/search?allowedAttribute=${searchQuery}&start=0&maxResult=10`, {
+            headers:{
+                "X-RapidAPI-Host": "yummly2.p.rapidapi.com",
+                "X-RapidAPI-Key": "fbead69ac3msh33016cbc11577d5p1d87cfjsn8fcc1a0c0df8"
+            }
+            })
+        .then(res => res.json())
+        .then(data => {
+        dispatch(showFindRecipes(data.feed))
+    })
+    }
+}

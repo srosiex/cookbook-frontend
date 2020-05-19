@@ -13,13 +13,19 @@ class Recipes extends React.Component {
        
 
     render(){
-
-        const recipeComponent = this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
+      const recipeComponent = this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
        
         return(
             <div>
+              <div className="new-form-s">
               <Form />
-         {recipeComponent}
+              </div>
+              <div className="drop-down">
+                <input type="dropdown" />
+              </div>
+              <div className="recipe-div">
+                {recipeComponent}
+               </div>
             </div>
         )}
     }
