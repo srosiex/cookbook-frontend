@@ -46,7 +46,9 @@
   float: left;
 }
 .recipe-div{
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
   float: center;
 
   padding-left: 50px;

@@ -1,5 +1,5 @@
 import React from 'react'
-import {addRecipe} from '../actions/recipesActions'
+import {createRecipe} from '../actions/recipesActions'
 import {connect} from 'react-redux'
 
 class Form extends React.Component{
@@ -25,8 +25,14 @@ class Form extends React.Component{
 
     handleSubmit = event => {
         event.preventDefault();
-        this.props.addRecipe(this.state)
+        this.props.createRecipe(this.state)
       
+    }
+
+    handleChecked = e => {
+        this.setState({
+            favorite: true
+        })
     }
 
     render(){
@@ -34,6 +40,7 @@ class Form extends React.Component{
             <form onSubmit={this.handleSubmit}>
                 Create new recipe: <br/>
                 <input type="text" name="image" value={this.state.image} placeholder="image url" onChange={this.handleChange} /><br/>
+                Favorite<input type="checkbox" name="favorite" value={this.state.favorite} onChange={this.handleChecked} /><br/>
                 <input type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} /><br/>
                 <input type="text" name="cuisine" value={this.state.cuisine} placeholder="cuisine" onChange={this.handleChange} /><br/>
                 <input type="textarea" name="ingredients" value={this.state.ingredients} placeholder="ingredients" onChange={this.handleChange} /><br/>
@@ -44,4 +51,4 @@ class Form extends React.Component{
     }
 }
 
-export default connect(null, {addRecipe})(Form)
+export default connect(null, {createRecipe})(Form)

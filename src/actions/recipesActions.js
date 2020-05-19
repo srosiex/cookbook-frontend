@@ -35,6 +35,13 @@ export const getRecipe = (recipeId) => {
 //thunk returns function-dispatch
 
 export const addRecipe = recipe => {
+    return{
+        type: 'ADD_RECIPE',
+        recipe
+    }
+}
+
+export const createRecipe = recipe => {
     return dispatch => {
         fetch('http://localhost:3001/recipes', {
             method: "POST",
@@ -45,7 +52,7 @@ export const addRecipe = recipe => {
         })
         .then(res => res.json())
         .then(recipe => {
-            dispatch({type: "ADD_RECIPE", payload: recipe})
+            dispatch(addRecipe(recipe))
         })
         .catch(error => console.log(error))
     }

@@ -8,6 +8,7 @@ import Form from '../components/Form'
 class Recipes extends React.Component {
     
     componentDidMount(){
+      
         this.props.getRecipes()
     }
        
