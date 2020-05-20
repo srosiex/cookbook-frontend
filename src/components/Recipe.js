@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 const Recipe = ({recipe}) => {
-   return (<div>
+   return (<div className="recipe-card">
      
       <p> <img className="food_img" src={recipe.image} />
         <h3>{recipe.title}</h3>

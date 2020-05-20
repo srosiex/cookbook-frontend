@@ -26,6 +26,14 @@ class Form extends React.Component{
     handleSubmit = event => {
         event.preventDefault();
         this.props.createRecipe(this.state)
+        this.setState({
+            title: '',
+            ingredients: '',
+            cuisine: '',
+            directions: '',
+            favorite: false,
+            image: '' 
+        })
       
     }
 

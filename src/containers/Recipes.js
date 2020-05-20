@@ -4,28 +4,79 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {getRecipes} from '../actions/recipesActions'
 import Form from '../components/Form'
+import FilterFavsComponent from '../components/FilterFavsComponent'
 
 class Recipes extends React.Component {
+
+    constructor(props){
+      super(props)
+
+      this.state={
+        defaultSort: true,
+        filterFavs: 'All'
+      }
+    }
     
     componentDidMount(){
       
         this.props.getRecipes()
     }
+
+    // renderRecipes = recipes => {
+    //   const defSort = this.state.defaultSort
+
+    //   recipes
+    // }
+
+    recipeComponent = recipes => {
+      return this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
+}
+    recipeFilter = () => {
+      let filteredList = ""
+      if (this.state.filterFavs === 'All'){
+        filteredList = this.props.recipes
+        console.log(filteredList)
+      }else{
+        // filteredList = this.props.recipes.filter(recipe => {
+        //   let favs = ''
+        //   if(recipe.favorite === true && this.state.filterFavs === 'true'){
+        //   //  console.log(recipe)
+        //    favs = recipe
+        //    console.log(favs)
+        //    return favs
+        //   }
+        // })
+        if(this.state.filterFavs === true && this.props.recipes.map(recipe=>{
+          let favs= ""
+          favs = recipe.favorite === true
+          console.log(favs)
+        })){
+          filteredList = this.props.recipes
+        }
+      }
+      return filteredList
+    }
+
+    handleFilter = event => {
+      this.setState({
+        [event.target.name]: event.target.value
+      })
+    }
        
 
     render(){
-      const recipeComponent = this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
-       
+      // const recipeComponent = this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
+
         return(
             <div>
               <div className="new-form-s">
               <Form />
               </div>
-              <div className="drop-down">
-                <input type="dropdown" />
+              <div className="filter">
+              <FilterFavsComponent handleFilter={this.handleFilter} /><br/>
               </div>
               <div className="recipe-div">
-                {recipeComponent}
+                {this.recipeComponent(this.recipeFilter())}
                </div>
             </div>
         )}

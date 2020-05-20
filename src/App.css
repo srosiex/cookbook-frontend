@@ -38,6 +38,7 @@
 }
 
 .food_img{
+  border-radius: 50%;
   height: 100px;
   width: 100px;
 }
@@ -55,4 +56,21 @@
   padding-right: 8px;
   flex: 1;
   overflow:auto;
+}
+.recipe-card{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 25px;
+  cursor: pointer;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+.recipe-card:hover{
+  transform: scale(1.05);
 }

@@ -25,7 +25,7 @@ class RecipeCard extends React.Component{
         const recipe = this.props.recipe
         return(
           
-            <div>
+            <div className="recipe">
                 <h2>{recipe.title}</h2><br/>
                 <img className="food_img" src={recipe.image} /><br/>
                 <b>Cuisine: {recipe.cuisine}</b><br />
