@@ -2,18 +2,23 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 
-const Recipe = ({recipe}) => {
-   return (<div className="recipe-card">
+class Recipe extends React.Component {
+  render(){
+    
+   return (
+      <div className="recipe-card">
      
-      <p> <img className="food_img" src={recipe.image} />
-        <h3>{recipe.title}</h3>
-        <b>Cuisine: {recipe.cuisine}</b><br />
+      <img className="food_img" src={this.props.recipe.image} />
+        <h3>{this.props.recipe.title}</h3>
+        <b>Cuisine: {this.props.recipe.cuisine}</b><br />
 
-        <Link key={recipe.id} to={`/myrecipes/${recipe.id}`}  >
+        <Link key={this.props.recipe.id} to={`/myrecipes/${this.props.recipe.id}`}  >
           <button className="recipe-button">View Recipe</button>
         </Link>
-        </p>
         
-    </div>)
+        
+      </div>
+    )
+    }
 }
 export default Recipe

@@ -1,8 +1,5 @@
 import React from 'react'
 import Recipe from '../components/Recipe'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import {connect} from 'react-redux'
-import {getRecipes} from '../actions/recipesActions'
 import Form from '../components/Form'
 import FilterFavsComponent from '../components/FilterFavsComponent'
 
@@ -17,10 +14,9 @@ class Recipes extends React.Component {
       }
     }
     
-    componentDidMount(){
-      
-        this.props.getRecipes()
-    }
+    // componentDidMount(){
+    //     this.props.getRecipes()
+    // }
 
     // renderRecipes = recipes => {
     //   const defSort = this.state.defaultSort
@@ -35,7 +31,6 @@ class Recipes extends React.Component {
       let filteredList = ""
       if (this.state.filterFavs === 'All'){
         filteredList = this.props.recipes
-        console.log(filteredList)
       }else{
         // filteredList = this.props.recipes.filter(recipe => {
         //   let favs = ''
@@ -49,9 +44,8 @@ class Recipes extends React.Component {
         if(this.state.filterFavs === true && this.props.recipes.map(recipe=>{
           let favs= ""
           favs = recipe.favorite === true
-          console.log(favs)
         })){
-          filteredList = this.props.recipes
+          
         }
       }
       return filteredList
@@ -82,15 +76,15 @@ class Recipes extends React.Component {
         )}
     }
 
-    const mapStateToProps = state => {
-        return{
-          recipes: state.recipes
-        }
-      }
+    // const mapStateToProps = state => {
+    //     return{
+    //       recipes: state.recipes
+    //     }
+    //   }
 
-     const mapDispatchToProps = dispatch => {
-        return{
-          getRecipes: () => dispatch(getRecipes())
-        }
-      }
-export default connect(mapStateToProps, mapDispatchToProps)(Recipes)
+    //  const mapDispatchToProps = dispatch => {
+    //     return{
+    //       getRecipes: () => dispatch(getRecipes())
+    //     }
+    //   }
+export default Recipes

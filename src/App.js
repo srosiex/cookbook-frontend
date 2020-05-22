@@ -1,23 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Recipes from './containers/Recipes'
-import RecipeCard from './containers/RecipeCard'
 import FindRecipes from './containers/FindRecipes'
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 
 import Home from './components/Home'
-import Recipe from './components/Recipe';
 
 import { connect } from 'react-redux'
+import RecipesPage from './containers/RecipesPage';
+import RecipeShow from './containers/RecipeShow'
 
 
 class App extends React.Component {
 
 
   render(){
-
-
   return (
     <Router>
       <div className="App">
@@ -28,10 +24,8 @@ class App extends React.Component {
 
         <Switch>
           <Route exact path="/" component={Home} />
-         <Route exact path={`/myrecipes`}>
-            <Recipes />
-          </Route>
-          <Route exact path="/myrecipes/:recipeId" component={RecipeCard} />
+         <Route exact path={`/myrecipes`} component={RecipesPage}/>
+          <Route path="/myrecipes/:recipeId" component={RecipeShow} />
           <Route exact path="/findrecipes" component={FindRecipes} />
         </Switch>
 

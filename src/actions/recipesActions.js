@@ -75,9 +75,26 @@ export const removeRecipe = (recipeId, routerHistory) => {
     }
 }
 
+/////////////////// comments /////////////
 
+export const showComments = comments => {
+    return {
+        type: "FETCH_COMMENTS",
+        comments
+    }
+}
 
-///////////////////
+export const fetchComments = (recipeId) => {
+    return dispatch => {
+       return fetch(`http://localhost:3001/recipes/${recipeId}/comments`)
+        .then(res => res.json())
+        .then(comments => dispatch(showComments(comments))
+            )
+            .catch(error => console.log(error))
+    }
+}
+
+/////////////////// yummly api ///////////
 
 export const showFindRecipes = fRecipes => {
     return {
@@ -87,7 +104,6 @@ export const showFindRecipes = fRecipes => {
 }
 
 export const getFindRecipes = (searchQuery = 'vegan') => {
-    console.log(searchQuery)
     return dispatch => {
         fetch(`https://yummly2.p.rapidapi.com/feeds/search?allowedAttribute=${searchQuery}&start=0&maxResult=10`, {
             headers:{

@@ -1,28 +1,35 @@
 import React from 'react';
 import {connect} from 'react-redux'
-import {showRecipe} from '../actions/recipesActions'
+import {getRecipe} from '../actions/recipesActions'
 import {removeRecipe} from '../actions/recipesActions'
+import {fetchComments} from '../actions/recipesActions'
 
 
-class RecipeCard extends React.Component{
+class RecipeShow extends React.Component{
+
+
 
     componendDidMount(){
-        const recipeId = this.props.recipe.id
-        this.props.showRecipe(recipeId);
+        this.props.getRecipe(this.props.match.params.recipeId);
+        // this.props.fetchComments(this.props.match.params.recipeId)
+        console.log('recipe card component mounted')
+
     }
+
 
     handleBack = e => {
        this.props.history.push('/myrecipes')
     }
 
     handleDelete = e => {
-        const recipeId = this.props.recipe.id
         this.props.removeRecipe(this.props.recipe.id)
         this.props.history.push('/myrecipes')
     }
 
     render(){
+        console.log(this.props.recipe)
         const recipe = this.props.recipe
+
         return(
           
             <div className="recipe">
@@ -35,16 +42,18 @@ class RecipeCard extends React.Component{
                <button onClick={this.handleDelete}>Delete</button>
 
                 <p><button onClick={this.handleBack}>Back</button></p>
+                <button>Comments</button>
             </div>
         )
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
-    const recipe = state.recipes.find(r => r.id === parseInt(ownProps.match.params.recipeId, 10)) || {}
 
+    const recipe = state.recipes.find(r => r.id === parseInt(ownProps.match.params.recipeId, 10)) || {}
     return ({
-        recipe: recipe
+        recipe: recipe,
+        comments: state.comments
     })
 }
-export default connect(mapStateToProps, {showRecipe, removeRecipe})(RecipeCard)
+export default connect(mapStateToProps, {getRecipe, removeRecipe, fetchComments})(RecipeShow)
