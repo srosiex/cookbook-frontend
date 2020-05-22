@@ -14,15 +14,6 @@ class Recipes extends React.Component {
       }
     }
     
-    // componentDidMount(){
-    //     this.props.getRecipes()
-    // }
-
-    // renderRecipes = recipes => {
-    //   const defSort = this.state.defaultSort
-
-    //   recipes
-    // }
 
     recipeComponent = recipes => {
       return this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)

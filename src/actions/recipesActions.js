@@ -94,6 +94,31 @@ export const fetchComments = (recipeId) => {
     }
 }
 
+export const addComment = comment => {
+    return{
+        type: 'ADD_COMMENT',
+        comment
+    }
+}
+
+export const createComment = (comment) => {
+    return dispatch => {
+        fetch(`http://localhost:3001/recipes/${comment.recipe_id}/comments`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({comment: comment})
+        })
+        .then(res => res.json())
+        .then(comment => {
+            dispatch(addComment(comment))
+        })
+        .catch(error => console.log(error))
+    }
+}
+
+
 /////////////////// yummly api ///////////
 
 export const showFindRecipes = fRecipes => {

@@ -3,17 +3,17 @@ import {connect} from 'react-redux'
 import {getRecipe} from '../actions/recipesActions'
 import {removeRecipe} from '../actions/recipesActions'
 import {fetchComments} from '../actions/recipesActions'
+import CommentsComponent from '../components/CommentsComponent'
+import CommentForm from '../components/CommentForm'
 
 
 class RecipeShow extends React.Component{
 
 
 
-    componendDidMount(){
+    componentDidMount(){
         this.props.getRecipe(this.props.match.params.recipeId);
-        // this.props.fetchComments(this.props.match.params.recipeId)
-        console.log('recipe card component mounted')
-
+        this.props.fetchComments(this.props.match.params.recipeId)
     }
 
 
@@ -27,7 +27,6 @@ class RecipeShow extends React.Component{
     }
 
     render(){
-        console.log(this.props.recipe)
         const recipe = this.props.recipe
 
         return(
@@ -39,10 +38,12 @@ class RecipeShow extends React.Component{
                 <b>Ingredients:</b> {recipe.ingredients}<br/>
                <b>Directions:</b> {recipe.directions}
                <br/>
-               <button onClick={this.handleDelete}>Delete</button>
+               <button onClick={this.handleDelete}>Delete</button><br/>
+                <button onClick={this.handleBack}>Back</button><br/>
 
-                <p><button onClick={this.handleBack}>Back</button></p>
-                <button>Comments</button>
+                    <CommentsComponent comments={this.props.comments} recipeId={this.props.match.params.recipeId} /><br/>
+                    <CommentForm recipeId={this.props.match.params.recipeId} />
+
             </div>
         )
     }
