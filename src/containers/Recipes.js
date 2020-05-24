@@ -53,7 +53,7 @@ class Recipes extends React.Component {
       // const recipeComponent = this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
 
         return(
-            <div>
+            <div className="recipes-list-page">
               <div className="new-form-s">
               <Form />
               </div>

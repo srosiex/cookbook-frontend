@@ -82,6 +82,7 @@
   transform: scale(1.05);
 }
 .logo{
+  color: rgb(75, 154, 173);
   font-family: 'Shadows Into Light', cursive;
   font-size: 30px;
   float: left;
@@ -125,4 +126,8 @@ ul{
   display: block;
   float: right;
   padding: 10px 10px;
+}
+.recipes-list-page{
+  float: left;
+  padding-left: 15px;
 }
