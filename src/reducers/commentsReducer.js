@@ -4,6 +4,8 @@ export default (state = [], action) => {
             return action.comments
         case 'ADD_COMMENT':
             return state.concat(action.comment)
+        case 'DELETE_COMMENT':
+            return state.filter(comment => comment.id !== action.id)
 
         default: 
             return state;

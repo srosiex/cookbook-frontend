@@ -118,6 +118,21 @@ export const createComment = (comment) => {
     }
 }
 
+// export const deleteComment = (commentId, recipeId) => {
+//     return dispatch => {
+//         return fetch(`http://localhost:3001/recipes/${recipeId}/comments/${commentId}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//               }
+//         })
+//         .then(res => res.json())
+//         .then(comment => {
+//             dispatch({type: "DELETE_COMMENT", payload: comment})
+//         })
+//     }
+// }
+
 
 /////////////////// yummly api ///////////
 

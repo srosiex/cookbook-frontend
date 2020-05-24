@@ -10,7 +10,6 @@ class RecipesPage extends React.Component{
 
     componentDidMount(){
         this.props.getRecipes()
-        console.log('Recipes list component mounted')
     }
 
     render(){

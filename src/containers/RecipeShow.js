@@ -32,17 +32,23 @@ class RecipeShow extends React.Component{
         return(
           
             <div className="recipe">
-                <h2>{recipe.title}</h2><br/>
-                <img className="food_img" src={recipe.image} /><br/>
-                <b>Cuisine: {recipe.cuisine}</b><br />
+                <h2 className="recipe-title-show">{recipe.title}</h2><br/>
+                <img className="food_img_large" src={recipe.image} /><br/>
+                <div className="recipe-item-bold">
+                    <div className="show-cuisine">
+                <b>Cuisine: </b>{recipe.cuisine}<br />
+                </div>
+                <div className="show-ingredients">
                 <b>Ingredients:</b> {recipe.ingredients}<br/>
-               <b>Directions:</b> {recipe.directions}
+                </div>
+               <b className="recipe-item-bold">Directions:</b> {recipe.directions}
+               </div>
                <br/>
                <button onClick={this.handleDelete}>Delete</button><br/>
                 <button onClick={this.handleBack}>Back</button><br/>
-
+                    <CommentForm recipeId={this.props.match.params.recipeId} /> 
                     <CommentsComponent comments={this.props.comments} recipeId={this.props.match.params.recipeId} /><br/>
-                    <CommentForm recipeId={this.props.match.params.recipeId} />
+ 
 
             </div>
         )
