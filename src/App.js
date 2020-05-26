@@ -14,6 +14,7 @@ class App extends React.Component {
 
 
   render(){
+
   return (
     <Router>
       <div className="App">
@@ -23,9 +24,8 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={Home} />
          <Route exact path={`/myrecipes`} component={RecipesPage}/>
-          <Route path="/myrecipes/:recipeId" component={RecipeShow} />
-          <Route exact path="/findrecipes" component={FindRecipes} />
-        
+         <Route path="/myrecipes/:recipeId" component={RecipeShow} />
+         <Route exact path="/findrecipes" component={FindRecipes} />
         </Switch>
 
     </div>

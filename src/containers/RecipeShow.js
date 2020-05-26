@@ -45,11 +45,10 @@ class RecipeShow extends React.Component{
                </div>
                <br/>
                <button onClick={this.handleDelete}>Delete</button><br/>
-                <button onClick={this.handleBack}>Back</button><br/>
                     <CommentForm recipeId={this.props.match.params.recipeId} /> 
                     <CommentsComponent comments={this.props.comments} recipeId={this.props.match.params.recipeId} /><br/>
  
-
+                    <button onClick={this.handleBack}>Back</button><br/>
             </div>
         )
     }

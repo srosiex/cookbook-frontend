@@ -9,35 +9,20 @@ class Recipes extends React.Component {
       super(props)
 
       this.state={
-        defaultSort: true,
         filterFavs: 'All'
       }
     }
     
 
-    recipeComponent = recipes => {
-      return this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
-}
+    recipeComponent = (recipes) => recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
+
     recipeFilter = () => {
       let filteredList = ""
       if (this.state.filterFavs === 'All'){
         filteredList = this.props.recipes
-      }else{
-        // filteredList = this.props.recipes.filter(recipe => {
-        //   let favs = ''
-        //   if(recipe.favorite === true && this.state.filterFavs === 'true'){
-        //   //  console.log(recipe)
-        //    favs = recipe
-        //    console.log(favs)
-        //    return favs
-        //   }
-        // })
-        if(this.state.filterFavs === true && this.props.recipes.map(recipe=>{
-          let favs= ""
-          favs = recipe.favorite === true
-        })){
-          
-        }
+      }
+      else if(this.state.filterFavs === 'true'){
+        filteredList = this.props.recipes.filter(recipe => recipe.favorite === true)
       }
       return filteredList
     }
@@ -51,7 +36,6 @@ class Recipes extends React.Component {
 
     render(){
       // const recipeComponent = this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
-
         return(
             <div className="recipes-list-page">
               <div className="new-form-s">
@@ -67,15 +51,4 @@ class Recipes extends React.Component {
         )}
     }
 
-    // const mapStateToProps = state => {
-    //     return{
-    //       recipes: state.recipes
-    //     }
-    //   }
-
-    //  const mapDispatchToProps = dispatch => {
-    //     return{
-    //       getRecipes: () => dispatch(getRecipes())
-    //     }
-    //   }
 export default Recipes
