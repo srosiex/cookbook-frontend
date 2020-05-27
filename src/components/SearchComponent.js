@@ -1,12 +1,24 @@
 import React from 'react'
 
 
-function SearchBox(props){
+class SearchBox extends React.Component {
+    // constructor(){
+    //     super()
+
+    //     this.state = ({
+    //         searchQuery: ''
+    //     })
+    // }
+
+    render(){
     return(
         <div>
-            <input onChange={props.handleSearch} type="text" name="searchQuery" />
+            <form onSubmit={this.props.handleSubmit}>
+            <input onChange={this.props.handleSearch} type="text" name="searchQuery" value={this.props.searchQuery} />
+            <button type="submit">Submit</button>
+            </form>
         </div>
-    )
+    )}
 }
 
 export default SearchBox

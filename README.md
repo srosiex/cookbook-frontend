@@ -1,3 +1,12 @@
+Recipe application that allows users to create new recipes, and make comments on the recipes.
+
+Rails API backend: https://github.com/srosiex/habits_backend
+
+Video walk through: https://www.youtube.com/watch?v=n48req87c80&feature=youtu.be
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

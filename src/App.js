@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import FindRecipes from './containers/FindRecipes'
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from './components/Home'
 

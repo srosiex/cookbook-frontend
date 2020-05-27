@@ -7,7 +7,7 @@ const Home = () => {
         <div>
             Welcome to your cookbook
             <br />
-            <img src={food} height="600px" width="700px" />
+            <img alt="homeimg" src={food} height="600px" width="700px" />
         </div>
     )
 }

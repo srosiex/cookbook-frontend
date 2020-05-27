@@ -29,11 +29,12 @@ class RecipeShow extends React.Component{
     render(){
         const recipe = this.props.recipe
 
+
         return(
           
             <div className="recipe">
                 <h2 className="recipe-title-show">{recipe.title}</h2><br/>
-                <img className="food_img_large" src={recipe.image} /><br/>
+                <img alt="recipe_img" className="food_img_large" src={recipe.image} /><br/>
                 <div className="recipe-item-bold">
                     <div className="show-cuisine">
                 <b>Cuisine: </b>{recipe.cuisine}<br />
@@ -44,7 +45,7 @@ class RecipeShow extends React.Component{
                <b className="recipe-item-bold">Directions:</b> {recipe.directions}
                </div>
                <br/>
-               <button onClick={this.handleDelete}>Delete</button><br/>
+               <button id="delete-button-rec" onClick={this.handleDelete}>Delete</button><br/>
                     <CommentForm recipeId={this.props.match.params.recipeId} /> 
                     <CommentsComponent comments={this.props.comments} recipeId={this.props.match.params.recipeId} /><br/>
  

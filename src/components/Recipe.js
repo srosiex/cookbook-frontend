@@ -8,7 +8,7 @@ class Recipe extends React.Component {
    return (
       <div className="recipe-card">
      
-      <center><img className="food_img" src={this.props.recipe.image} /></center>
+      <center><img alt="food_img" className="food_img" src={this.props.recipe.image} /></center>
         <h3>{this.props.recipe.title}</h3>
         
         <b className="c-recipe">Cuisine:</b> {this.props.recipe.cuisine}<br />

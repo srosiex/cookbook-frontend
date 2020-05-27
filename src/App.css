@@ -81,6 +81,33 @@
 .recipe-card:hover{
   transform: scale(1.05);
 }
+.find-rec{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+  float: center;
+
+  padding-left: 50px;
+  padding-right: 8px;
+  flex: 1;
+  overflow:auto;
+}
+.f-recipe-card{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid grey;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  padding: 25px;
+  -moz-osx-font-smoothing: grayscale;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  transition: transform 0.25s ease-out;
+}
+.f-recipe-card:hover{
+  transform: scale(1.05);
+}
 .logo{
   color: rgb(75, 154, 173);
   font-family: 'Shadows Into Light', cursive;
@@ -130,4 +157,17 @@ ul{
 .recipes-list-page{
   float: left;
   padding-left: 15px;
+}
+.comment-form-container{
+  padding-top: 15px;
+  margin: 15px;
+}
+#delete-button-rec{
+  
+}
+.add-comment{
+ margin: 15px;
+}
+.recipe{
+  margin: 25px;
 }

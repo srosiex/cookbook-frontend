@@ -51,8 +51,8 @@ class Form extends React.Component{
                 Favorite<input type="checkbox" name="favorite" value={this.state.favorite} onChange={this.handleChecked} /><br/>
                 <input type="text" name="title" value={this.state.title} placeholder="title" onChange={this.handleChange} /><br/>
                 <input type="text" name="cuisine" value={this.state.cuisine} placeholder="cuisine" onChange={this.handleChange} /><br/>
-                <input type="textarea" name="ingredients" value={this.state.ingredients} placeholder="ingredients" onChange={this.handleChange} /><br/>
-                <input type="textarea" name="directions" value={this.state.directions} placeholder="directions" onChange={this.handleChange} /><br/>
+                <textarea type="textarea" name="ingredients" value={this.state.ingredients} placeholder="ingredients" onChange={this.handleChange} /><br/>
+                <textarea type="textarea" name="directions" value={this.state.directions} placeholder="directions" onChange={this.handleChange} /><br/>
                     <button type="submit">Submit</button>
             </form>
         )

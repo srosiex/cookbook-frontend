@@ -12,7 +12,7 @@ class FindRecipes extends React.Component{
 
     componentDidMount(){
         const searchQuery = this.state.searchQuery
-        this.props.getFindRecipes({searchQuery})
+        this.props.getFindRecipes()
     }
 
 
@@ -22,25 +22,24 @@ class FindRecipes extends React.Component{
         })
     }
 
-    render(){
+    handleSubmit = event => {
+        event.preventDefault();
+        this.setState({
+            searchQuery: ''
+        })
+    }
 
+    render(){
 
         const recipeDisplay = this.props.recipes.map(recipe=> recipe.display)
 
         const recipe = recipeDisplay.map(recipe => <FindRecipesComponent key={recipe.id} recipe={recipe} />)
-        
-        // const recipe = recipeDisplay.map(recipe => {
-        //    return recipe.displayName
-        // })
-        // const filteredRecipes = recipe.filter(recipe => {
-        //     return recipe.toLowerCase().includes(this.state.searchQuery.toLowerCase())
-        // })
 
         return(
             <div>
                 Search Recipes
-                <SearchBox handleSearch={this.handleSearch} />
-                {recipe}
+                <SearchBox handleSearch={this.handleSearch} handleSubmit={this.handleSubmit} />
+               <div className="find-rec"> {recipe}</div> 
             </div>
         )
     }

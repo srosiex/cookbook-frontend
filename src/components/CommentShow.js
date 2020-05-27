@@ -1,6 +1,5 @@
 import React from 'react'
-import CommentsComponent from './CommentsComponent'
-import { connect } from 'react-redux'
+
 
 
 class CommentShow extends React.Component {
@@ -14,7 +13,7 @@ class CommentShow extends React.Component {
         <div>
             {
              comment.recipe_id === recipeId ?
-             
+
                 comment.content
             :
                 null
@@ -22,4 +21,4 @@ class CommentShow extends React.Component {
         </div>
     )}
 }
-export default connect(null, {})(CommentShow)
+export default CommentShow
