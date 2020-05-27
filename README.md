@@ -4,6 +4,8 @@ Rails API backend: https://github.com/srosiex/habits_backend
 
 Video walk through: https://www.youtube.com/watch?v=n48req87c80&feature=youtu.be
 
+Blog post: https://srosiex.github.io/final_project_round_ii
+
 
 
 
