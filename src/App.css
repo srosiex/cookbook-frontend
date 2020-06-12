@@ -51,20 +51,20 @@
 .new-form-s{
   display: flex;
   float: left;
-  margin-right: 10px;
+  margin-right: 5px;
   padding-top: 55px;
 
 }
 .recipe-div{
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
   float: center;
 
   padding-left: 50px;
   padding-right: 8px;
   flex: 1;
-  overflow:auto;
+  /* overflow:auto; */
 }
 .recipe-card{
   display: flex;
