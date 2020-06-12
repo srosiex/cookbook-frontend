@@ -1,10 +1,12 @@
 Recipe application that allows users to create new recipes, and make comments on the recipes.
 
-Rails API backend: https://github.com/srosiex/habits_backend
+Rails API backend: https://github.com/srosiex/cookbook-backend
 
 Video walk through: https://www.youtube.com/watch?v=n48req87c80&feature=youtu.be
 
 Blog post: https://srosiex.github.io/final_project_round_ii
+
+
 
 
 
