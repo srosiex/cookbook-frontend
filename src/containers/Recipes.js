@@ -39,7 +39,7 @@ class Recipes extends React.Component {
               <div className="new-form-s">
               <Form />
               </div>
-              <div className="filter">
+              <div className="filter-form">
               <FilterFavsComponent handleFilter={this.handleFilter} /><br/>
               </div>
               <div className="recipe-div">
