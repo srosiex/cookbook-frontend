@@ -42,6 +42,7 @@
   height: 100px;
   width: 100px;
 }
+
 .food_img_large{
   border-radius: 50%;
   height: 200px;
@@ -139,8 +140,14 @@ a:hover{
 .show-ingredients{
   padding: 15px;
 }
+button{
+
+  border-style: none;
+  background-color: rgb(237, 214, 240);
+}
 button:hover{
   cursor: pointer;
+  background-color: rgb(209, 186, 212)
 }
 ul{
   list-style: none;
@@ -170,4 +177,9 @@ ul{
 }
 .recipe{
   margin: 25px;
+}
+.comment-div{
+  background-color: rgb(228, 228, 228);
+  width: 50%;
+  margin-left: 25%;
 }

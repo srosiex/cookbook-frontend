@@ -12,9 +12,8 @@ class Recipes extends React.Component {
         filterFavs: 'All'
       }
     }
-    
 
-    recipeComponent = (recipes) => recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
+    recipeComponent = (recipes) => recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe}  />)
 
     recipeFilter = () => {
       let filteredList = ""
@@ -35,7 +34,6 @@ class Recipes extends React.Component {
        
 
     render(){
-      // const recipeComponent = this.props.recipes.map(recipe => <Recipe key={recipe.id} recipe={recipe} />)
         return(
             <div className="recipes-list-page">
               <div className="new-form-s">

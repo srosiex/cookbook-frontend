@@ -7,11 +7,14 @@ export const showRecipes = recipes => {
 
 export const getRecipes = () => {
     return dispatch => {
-        fetch('http://localhost:3001/recipes')
+        console.log('a')
+        fetch('https://cookbook-rails-backend.herokuapp.com/recipes')
         .then(r => r.json())
         .then(recipesJSON =>{
+            console.log('b')
             dispatch(showRecipes(recipesJSON))
         })
+        console.log('c')
     }
 }
 
@@ -24,7 +27,7 @@ export const showRecipe = recipe => {
 
 export const getRecipe = (recipeId) => {
     return dispatch => {
-        fetch(`http://localhost:3001/recipes/${recipeId}`)
+        fetch(`https://cookbook-rails-backend.herokuapp.com/recipes/${recipeId}`)
         .then(r => r.json())
         .then(recipeJSON =>{
             dispatch(showRecipe([recipeJSON]))
@@ -43,7 +46,7 @@ export const addRecipe = recipe => {
 
 export const createRecipe = recipe => {
     return dispatch => {
-        fetch('http://localhost:3001/recipes', {
+        fetch('https://cookbook-rails-backend.herokuapp.com/recipes', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -60,7 +63,7 @@ export const createRecipe = recipe => {
 
 export const removeRecipe = (recipeId, routerHistory) => {
     return dispatch => {
-        return fetch(`http://localhost:3001/recipes/${recipeId}`, {
+        return fetch(`https://cookbook-rails-backend.herokuapp.com/recipes/${recipeId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -86,7 +89,7 @@ export const showComments = comments => {
 
 export const fetchComments = (recipeId) => {
     return dispatch => {
-       return fetch(`http://localhost:3001/recipes/${recipeId}/comments`)
+       return fetch(`https://cookbook-rails-backend.herokuapp.com/recipes/${recipeId}/comments`)
         .then(res => res.json())
         .then(comments => dispatch(showComments(comments))
             )
@@ -103,7 +106,7 @@ export const addComment = comment => {
 
 export const createComment = (comment) => {
     return dispatch => {
-        fetch(`http://localhost:3001/recipes/${comment.recipe_id}/comments`, {
+        fetch(`https://cookbook-rails-backend.herokuapp.com/recipes/${comment.recipe_id}/comments`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

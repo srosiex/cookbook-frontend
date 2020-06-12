@@ -13,14 +13,13 @@ class RecipesPage extends React.Component{
     }
 
     render(){
-        const {recipes, match} = this.props
         return(
             <div>
                 <Switch>
-                    <Route exact path={match.url} render={()=>(
-                        <Recipes recipes={recipes} />
+                    <Route exact path={this.props.match.url} render={()=>(
+                        <Recipes recipes={this.props.recipes} />
                     )} />
-                    <Route path={`${match.url}/:recipeId`} component={<RecipeShow recipes={recipes}/>} />
+                    <Route path={`${this.props.match.url}/:recipeId`} component={<RecipeShow recipes={this.props.recipes}/>} />
                 </Switch>
             </div>
         )

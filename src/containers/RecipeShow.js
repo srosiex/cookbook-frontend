@@ -12,7 +12,7 @@ class RecipeShow extends React.Component{
 
 
     componentDidMount(){
-        this.props.getRecipe(this.props.match.params.recipeId);
+        // this.props.getRecipe(this.props.match.params.recipeId);
         this.props.fetchComments(this.props.match.params.recipeId)
     }
 
@@ -63,4 +63,7 @@ const mapStateToProps = (state, ownProps) => {
         comments: state.comments
     })
 }
+
+
 export default connect(mapStateToProps, {getRecipe, removeRecipe, fetchComments})(RecipeShow)
+

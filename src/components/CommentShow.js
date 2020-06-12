@@ -10,7 +10,7 @@ class CommentShow extends React.Component {
         const recipeId = this.props.recipeId
     return(
 
-        <div>
+        <div className="comment-div">
             {
              comment.recipe_id === recipeId ?
 
